@@ -1,0 +1,23 @@
+CrypTool
+
+CrypTool jest programem do nauki kryptografii i kryptoanalizy.
+
+Ten plik ma pomóc u¿ytkownikowi w wykonaniu pierwszych kroków z programem.
+
+1) Poznawanie programu warto  zacz¹æ od zaszyfrowania tego tekstu np. za pomoc¹ algorytmu 
+Cezara ( menu "Szyfrowanie / Historyczne" ).
+
+2) Przegl¹d i opis wszystkich funkcji programu CrypTool jest zawarty w plikach pomocy. Dostêp do nich 
+mo¿na uzyskaæ poprzez menu "Pomoc / Strona startowa", albo naciskaj¹c klawisz F1.
+   
+3) Na pocz¹tek warto zapoznaæ siê z przygotowanymi scenariuszami, które demonstruj¹ wybrane algorytmy. Wiêcej 
+na ten temat mo¿na przeczytaæ na stronach pomocy dostêpnych przez menu "Pomoc / Scenariusze".
+
+4) 
+Dalsze poznawanie mo¿liwoœci programu mo¿liwe jest na wiele sposobów:
+- poprzez klikanie kolejnych pozycji w menu,
+- poprzez przejrzenie pliku ReadMe (menu "Pomoc").
+- poprzez przejrzenie prezentacji mo¿liwoœci programu (zobacz rozdzia³ "Dokumentacja" na stronie startowej pomocy).
+- poprzez odwiedzenie strony www.cryptool.pl.
+
+Lipiec 2007

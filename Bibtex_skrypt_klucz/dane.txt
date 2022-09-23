@@ -1,0 +1,10 @@
+AUX210819_1012_datami
+4920 wynikow
+najwazniejsze informacje
+
+klucz{ 
+3/2 pierwsze litery nazwisk x3 + ETAL
+rok
+Pierwsze duże litery nazwy journala (and z małej) / jednosłowny - 4 / dwu - 2 + nr artykulu
+lub jesli ksiazka to book + jak wyzej
+}

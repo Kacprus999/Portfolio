@@ -1,0 +1,38 @@
+#VRML V2.0 utf8
+
+# File create with GEOM.
+# File Generated with PlantGL 3D Viewer
+
+WorldInfo {
+    title "A GEOM Scene"
+    info [ "File Generated with PlantGL 3D Viewer" ]
+}
+
+Transform {
+    rotation 0 1 0 0.261799
+    children Transform {
+        rotation 1 0 0 -0.331613
+        children Viewpoint {
+            position -2.32117 11.1493 63.9622
+            description "Geom View"
+        }
+}
+}
+
+Viewpoint {
+    position -2.32117 11.1493 61.9622
+    description "Home"
+}
+
+PointLight {
+    color 1 1 1
+    intensity 1
+    ambientIntensity 0.6
+    location 0 10.6066 10.6066
+    radius 60
+}
+
+Background {
+    skyColor 0.666667 0.666667 0.666667
+}
+

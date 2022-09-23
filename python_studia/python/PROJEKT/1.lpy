@@ -1,0 +1,269 @@
+import random
+
+phi = 52
+alpha = 28
+beta  = 20
+step = 0.1
+leaf_step = 1
+maximum_trunk_height = 3.5
+
+strings = []
+
+def EndEach(current_string):
+  strings.append(str(current_string))
+  
+def End():
+  with open('data.txt', 'w+') as file_handler:
+    for string in strings:
+        print >> file_handler, string
+
+Axiom: _(0.5)T(0)A(1.0)
+# _ turtle width
+
+derivation length: 850
+production:
+
+A(k) :
+  
+    p1 = min(1,(2*k+5)/k**2)
+    r = random.random()
+    if r <= p1:
+        produce /(phi)[+(alpha)C(0.1,k)]-(beta)C(step,k)
+    else:
+        produce /(phi)[+(alpha)/k(step)]-(beta)C(0.1,k)
+
+C(x,k) :
+    if x >= 1:
+      if k < 30:
+        if k < 15:
+            produce F(1,0.05+0.25/k)A(k+1)
+        else:
+            produce F(1,0.05+0.25/k)
+      else:
+        produce C(x,k)
+    else:
+        produce C(x+step,k)
+
+k(s):
+  rnd = random.random()
+  if (rnd < 0.75):
+    produce k(s+leaf_step)
+  else:
+    produce k(s)
+T(t):
+  if (t < maximum_trunk_height):
+    rd = random.random()
+    if rd < 0.65:
+      produce SetColor(0) +(0.5)F(0.1) T(t+0.042)
+    else:
+      produce SetColor(0) -(0.5)F(0.1) T(t+0.042)
+  else:
+    produce T(t)
+
+homomorphism:
+
+C(x,k):
+    d = 1
+    
+    if k > 1:
+        d = 0.05+0.25* ((x/k)+(1-x)/(k-1))
+    else:
+        d = (0.3*(1-x))+((0.05+0.25/k)*x)
+    if k < 30:
+      produce F(x, d)
+
+k(s):
+  if 0 <= s < 114:
+    produce ;(1)_(0.007)F(0.4)~l((s*1.0)/114)
+  elif 114 <= s <= 118:
+    produce ;(2)_(0.007)F(0.4)~l(1)
+  elif 118 <= s <= 124:
+    produce ;(3)_(0.007)F(0.4)~l(1)
+  elif 124 <= s <= 135:
+    produce ;(4)_(0.007)F(0.4)~l(1)
+  elif 135 <= s <= 150:
+    produce ;(5)_(0.007)F(0.4)~l(1)
+  elif 150 <= s <= 170:
+    produce ;(6)_(0.007)F(0.4)~l(1)
+  elif 170 <= s <= 190:
+    produce ;(7)_(0.007)F(0.4)~l(1)
+  elif 190 <= s <= 210:
+    produce ;(8)_(0.007)F(0.4)~l(1)
+  elif 210 <= s <= 230:
+    produce ;(9)_(0.007)F(0.4)~l(1)
+  elif 230 <= s <= 250:
+    produce ;(10)_(0.007)F(0.4)~l(1)
+  elif 250 <= s <= 270:
+    produce ;(11)_(0.007)F(0.4)~l(1)
+  elif 270 <= s <= 290:
+    produce ;(12)_(0.007)F(0.4)~l(1)
+  elif 290 <= s <= 320:
+    produce ;(13)_(0.007)F(0.4)~l(1)
+  elif 320 < s <= 350:
+    produce ;(14)_(0.007)F(0.2)~l(0.8)
+  elif 350 < s <= 380:
+    produce ;(15)_(0.007)F(0.2)~l(0.8)
+  elif 380 < s <= 420:
+    produce ;(15)_(0.007)F(0.2)~l(0.8)
+  elif 420 < s <= 450:
+    produce ;(16)_(0.007)F(0.2)~l(0.8)
+  else:
+    produce
+###### INITIALISATION ######
+
+__lpy_code_version__ = 1.1
+
+def __initialiseContext__(context):
+	import openalea.plantgl.all as pgl
+	Color_0 = pgl.Material("Color_0" , ambient = (65,51,28) , diffuse = 0.2 , specular = (44,44,44) , )
+	Color_0.name = "Color_0"
+	context.turtle.setMaterial(0,Color_0)
+	Color_1 = pgl.Material("Color_1" , ambient = (30,60,10) , diffuse = 3 , )
+	Color_1.name = "Color_1"
+	context.turtle.setMaterial(1,Color_1)
+	Color_2 = pgl.Material("Color_2" , ambient = (43,69,13) , diffuse = 2.76654 , )
+	Color_2.name = "Color_2"
+	context.turtle.setMaterial(2,Color_2)
+	Color_3 = pgl.Material("Color_3" , ambient = (56,79,16) , diffuse = 2.53309 , )
+	Color_3.name = "Color_3"
+	context.turtle.setMaterial(3,Color_3)
+	Color_4 = pgl.Material("Color_4" , ambient = (69,88,19) , diffuse = 2.29963 , )
+	Color_4.name = "Color_4"
+	context.turtle.setMaterial(4,Color_4)
+	Color_5 = pgl.Material("Color_5" , ambient = (83,98,22) , diffuse = 2.06618 , )
+	Color_5.name = "Color_5"
+	context.turtle.setMaterial(5,Color_5)
+	Color_6 = pgl.Material("Color_6" , ambient = (96,107,25) , diffuse = 1.83272 , )
+	Color_6.name = "Color_6"
+	context.turtle.setMaterial(6,Color_6)
+	Color_7 = pgl.Material("Color_7" , ambient = (109,117,28) , diffuse = 1.59926 , )
+	Color_7.name = "Color_7"
+	context.turtle.setMaterial(7,Color_7)
+	Color_8 = pgl.Material("Color_8" , ambient = (122,126,31) , diffuse = 1.36581 , )
+	Color_8.name = "Color_8"
+	context.turtle.setMaterial(8,Color_8)
+	Color_9 = pgl.Material("Color_9" , ambient = (153,153,37) , diffuse = 1.00654 , )
+	Color_9.name = "Color_9"
+	context.turtle.setMaterial(9,Color_9)
+	Color_10 = pgl.Material("Color_10" , ambient = (125,116,29) , diffuse = 1.39916 , )
+	Color_10.name = "Color_10"
+	context.turtle.setMaterial(10,Color_10)
+	Color_11 = pgl.Material("Color_11" , ambient = (114,97,24) , diffuse = 1.66597 , )
+	Color_11.name = "Color_11"
+	context.turtle.setMaterial(11,Color_11)
+	Color_12 = pgl.Material("Color_12" , ambient = (103,77,19) , diffuse = 1.93277 , )
+	Color_12.name = "Color_12"
+	context.turtle.setMaterial(12,Color_12)
+	Color_13 = pgl.Material("Color_13" , ambient = (92,58,14) , diffuse = 2.19958 , )
+	Color_13.name = "Color_13"
+	context.turtle.setMaterial(13,Color_13)
+	Color_14 = pgl.Material("Color_14" , ambient = (81,38,9) , diffuse = 2.46639 , )
+	Color_14.name = "Color_14"
+	context.turtle.setMaterial(14,Color_14)
+	Color_15 = pgl.Material("Color_15" , ambient = (70,19,4) , diffuse = 2.73319 , )
+	Color_15.name = "Color_15"
+	context.turtle.setMaterial(15,Color_15)
+	Color_16 = pgl.Material("Color_16" , ambient = (72,12,12) , diffuse = 0.0555556 , specular = (42,42,42) , emission = (24,24,24) , )
+	Color_16.name = "Color_16"
+	context.turtle.setMaterial(16,Color_16)
+	Color_17 = pgl.Material("Color_17" , ambient = (70,19,4) , diffuse = 2.72857 , transparency = 0.72 , )
+	Color_17.name = "Color_17"
+	context.turtle.setMaterial(17,Color_17)
+	Color_18 = pgl.Material("Color_18" , ambient = (80,77,6) , diffuse = 2.16291 , )
+	Color_18.name = "Color_18"
+	context.turtle.setMaterial(18,Color_18)
+	Color_19 = pgl.Material("Color_19" , ambient = (76,71,12) , diffuse = 2.2544 , )
+	Color_19.name = "Color_19"
+	context.turtle.setMaterial(19,Color_19)
+	Color_20 = pgl.Material("Color_20" , ambient = (72,65,19) , diffuse = 2.34588 , )
+	Color_20.name = "Color_20"
+	context.turtle.setMaterial(20,Color_20)
+	Color_21 = pgl.Material("Color_21" , ambient = (68,59,25) , diffuse = 2.43737 , )
+	Color_21.name = "Color_21"
+	context.turtle.setMaterial(21,Color_21)
+	Color_22 = pgl.Material("Color_22" , ambient = (64,53,32) , diffuse = 2.52885 , )
+	Color_22.name = "Color_22"
+	context.turtle.setMaterial(22,Color_22)
+	Color_23 = pgl.Material("Color_23" , ambient = (65,61,37) , diffuse = 2.46154 , )
+	Color_23.name = "Color_23"
+	context.turtle.setMaterial(23,Color_23)
+	context.options.setSelection('Optimization',2)
+###### INITIALISATION ######
+
+__lpy_code_version__ = 1.1
+
+def __initialiseContext__(context):
+	import openalea.plantgl.all as pgl
+	Color_0 = pgl.Material("Color_0" , ambient = (65,51,28) , diffuse = 0.2 , specular = (44,44,44) , )
+	Color_0.name = "Color_0"
+	context.turtle.setMaterial(0,Color_0)
+	Color_1 = pgl.Material("Color_1" , ambient = (30,60,10) , diffuse = 3 , )
+	Color_1.name = "Color_1"
+	context.turtle.setMaterial(1,Color_1)
+	Color_2 = pgl.Material("Color_2" , ambient = (43,69,13) , diffuse = 2.76654 , )
+	Color_2.name = "Color_2"
+	context.turtle.setMaterial(2,Color_2)
+	Color_3 = pgl.Material("Color_3" , ambient = (56,79,16) , diffuse = 2.53309 , )
+	Color_3.name = "Color_3"
+	context.turtle.setMaterial(3,Color_3)
+	Color_4 = pgl.Material("Color_4" , ambient = (69,88,19) , diffuse = 2.29963 , )
+	Color_4.name = "Color_4"
+	context.turtle.setMaterial(4,Color_4)
+	Color_5 = pgl.Material("Color_5" , ambient = (83,98,22) , diffuse = 2.06618 , )
+	Color_5.name = "Color_5"
+	context.turtle.setMaterial(5,Color_5)
+	Color_6 = pgl.Material("Color_6" , ambient = (96,107,25) , diffuse = 1.83272 , )
+	Color_6.name = "Color_6"
+	context.turtle.setMaterial(6,Color_6)
+	Color_7 = pgl.Material("Color_7" , ambient = (109,117,28) , diffuse = 1.59926 , )
+	Color_7.name = "Color_7"
+	context.turtle.setMaterial(7,Color_7)
+	Color_8 = pgl.Material("Color_8" , ambient = (122,126,31) , diffuse = 1.36581 , )
+	Color_8.name = "Color_8"
+	context.turtle.setMaterial(8,Color_8)
+	Color_9 = pgl.Material("Color_9" , ambient = (153,153,37) , diffuse = 1.00654 , )
+	Color_9.name = "Color_9"
+	context.turtle.setMaterial(9,Color_9)
+	Color_10 = pgl.Material("Color_10" , ambient = (125,116,29) , diffuse = 1.39916 , )
+	Color_10.name = "Color_10"
+	context.turtle.setMaterial(10,Color_10)
+	Color_11 = pgl.Material("Color_11" , ambient = (114,97,24) , diffuse = 1.66597 , )
+	Color_11.name = "Color_11"
+	context.turtle.setMaterial(11,Color_11)
+	Color_12 = pgl.Material("Color_12" , ambient = (103,77,19) , diffuse = 1.93277 , )
+	Color_12.name = "Color_12"
+	context.turtle.setMaterial(12,Color_12)
+	Color_13 = pgl.Material("Color_13" , ambient = (92,58,14) , diffuse = 2.19958 , )
+	Color_13.name = "Color_13"
+	context.turtle.setMaterial(13,Color_13)
+	Color_14 = pgl.Material("Color_14" , ambient = (81,38,9) , diffuse = 2.46639 , )
+	Color_14.name = "Color_14"
+	context.turtle.setMaterial(14,Color_14)
+	Color_15 = pgl.Material("Color_15" , ambient = (70,19,4) , diffuse = 2.73319 , )
+	Color_15.name = "Color_15"
+	context.turtle.setMaterial(15,Color_15)
+	Color_16 = pgl.Material("Color_16" , ambient = (72,12,12) , diffuse = 0.0555556 , specular = (42,42,42) , emission = (24,24,24) , )
+	Color_16.name = "Color_16"
+	context.turtle.setMaterial(16,Color_16)
+	Color_17 = pgl.Material("Color_17" , ambient = (70,19,4) , diffuse = 2.72857 , transparency = 0.72 , )
+	Color_17.name = "Color_17"
+	context.turtle.setMaterial(17,Color_17)
+	Color_18 = pgl.Material("Color_18" , ambient = (80,77,6) , diffuse = 2.16291 , )
+	Color_18.name = "Color_18"
+	context.turtle.setMaterial(18,Color_18)
+	Color_19 = pgl.Material("Color_19" , ambient = (76,71,12) , diffuse = 2.2544 , )
+	Color_19.name = "Color_19"
+	context.turtle.setMaterial(19,Color_19)
+	Color_20 = pgl.Material("Color_20" , ambient = (72,65,19) , diffuse = 2.34588 , )
+	Color_20.name = "Color_20"
+	context.turtle.setMaterial(20,Color_20)
+	Color_21 = pgl.Material("Color_21" , ambient = (68,59,25) , diffuse = 2.43737 , )
+	Color_21.name = "Color_21"
+	context.turtle.setMaterial(21,Color_21)
+	Color_22 = pgl.Material("Color_22" , ambient = (64,53,32) , diffuse = 2.52885 , )
+	Color_22.name = "Color_22"
+	context.turtle.setMaterial(22,Color_22)
+	Color_23 = pgl.Material("Color_23" , ambient = (65,61,37) , diffuse = 2.46154 , )
+	Color_23.name = "Color_23"
+	context.turtle.setMaterial(23,Color_23)
+	context.options.setSelection('Optimization',2)
