@@ -6,7 +6,8 @@ Files for my first portfolio
 Bibtex_skrypt_klucz:
   "składowe" is a folder for downloaded files from Web of Science Core Collection that contain bibliography
   elements with unchanged keys in the default format that WoSCC saves them in, for example :
-      @article{ WOS:000670074400004,
+     
+     @article{ WOS:000670074400004,
         Author = {Ji, J. C. and Luo, Quantian and Ye, Kan},
         Title = {{Vibration control based metamaterials and origami structures: A
            state-of-the-art review}},
@@ -23,12 +24,12 @@ Bibtex_skrypt_klucz:
         Unique-ID = {{WOS:000670074400004}},
       }
       
-      where "WOS:000670074400004" is a default key.
-      1-4920noweklucze.bib is a file that contains all bibliography information that was required for the project
+  where "WOS:000670074400004" is a default key.
+  1-4920noweklucze.bib is a file that contains all bibliography information that was required for the project
       
-      skrpyt.py is the main script.
+  skrpyt.py is the main script.
       
-      dane, bledy and all test files were used for heliping and testing my project.
+  dane, bledy and all test files were used for heliping and testing my project.
       
       
       
